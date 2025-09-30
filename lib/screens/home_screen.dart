@@ -21,13 +21,38 @@ class _HomeScreenState extends State<HomeScreen> {
     final notesProvider = Provider.of<NotesProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text("Notas")),
+      appBar: AppBar(
+        title: Text("Notas"),
+        backgroundColor: Colors.deepPurple[200], // Morado claro
+      ),
       body:
           notesProvider.notes.isEmpty
-              ? Center(child: Text("No hay notas"))
+              ? Center(
+                child: Text(
+                  "No tienes notas aún.",
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              )
               : ListView.builder(
+                padding: EdgeInsets.all(8),
                 itemCount: notesProvider.notes.length,
-                itemBuilder: (ctx, i) => NoteItem(note: notesProvider.notes[i]),
+                itemBuilder:
+                    (ctx, i) => Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple[100], // Morado más claro
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 5,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: NoteItem(note: notesProvider.notes[i]),
+                    ),
               ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -36,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
             MaterialPageRoute(builder: (_) => NoteDetailScreen()),
           );
         },
+        backgroundColor: Colors.deepPurple[200],
         child: Icon(Icons.add),
       ),
     );
