@@ -1,16 +1,23 @@
-# app_notes
+Descripción:
+Esta aplicación de notas ha sido desarrollada en Flutter con el objetivo de permitir al usuario crear, editar y eliminar notas de manera sencilla y rápida.
+El proyecto está diseñado para ser multiplataforma (Android/iOS/Web), con una arquitectura modular que facilita la escalabilidad y el mantenimiento del código.
 
-A new Flutter project.
+Arquitectura:
+La aplicación sigue una arquitectura en capas para separar responsabilidades:
 
-## Getting Started
+Presentación (UI):
+Pantallas y widgets en Flutter.
+Manejo de estados con Provider.
+Interfaz intuitiva.
 
-This project is a starting point for a Flutter application.
+Datos:
+Almacenamiento local con SQLite.
 
-A few resources to get you started if this is your first Flutter project:
+Medidas de Seguridad Aplicadas:
+Para proteger la información de los usuarios, se han aplicado las siguientes medidas:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Almacenamiento seguro
+Uso de SQLite encriptado para proteger las notas en el dispositivo.
+Claves de encriptación generadas dinámicamente.
+Validación de entradas
+Sanitización de datos ingresados por el usuario para prevenir inyección de código.
